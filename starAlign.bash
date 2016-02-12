@@ -17,7 +17,7 @@ for ii in data/UTAH_CORE/101Paired_end/9386R/Fastq/*.txt.gz data/UGUAM0001JB/RNA
     echo "Unzipped"
     date
     echo "Aligning"
-    ~/installs/STAR/bin/Linux_x86_64_static/STAR --genomeDir index   --runThreadN 18 --readFilesIn work/unzipped.fastq --outFileNamePrefix $outFile.
+    STAR/bin/Linux_x86_64_static/STAR --genomeDir index   --runThreadN 18 --readFilesIn work/unzipped.fastq --outFileNamePrefix $outFile.
 
     echo "Sorting"
     samtools view -bS "$outFile.Aligned.out.sam" > work/tmp.bam
