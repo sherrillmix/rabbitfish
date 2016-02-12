@@ -4,7 +4,7 @@
 set -e
 
 #fastq files are stored as .txt.gz
-for ii in data/UTAH_CORE/50bp_single_read/9386R/Fastq/*.txt.gz data/UGUAM0001JB/RNAseq_RawData/Samples/*.txt.gz;do
+for ii in data/UTAH_CORE/101Paired_end/9386R/Fastq/*.txt.gz data/UGUAM0001JB/RNAseq_RawData/Samples/*.txt.gz;do
   echo $ii
   base=$(basename $ii)
   outFile=work/${base%.txt.gz}
