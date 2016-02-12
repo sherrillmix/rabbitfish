@@ -9,7 +9,7 @@ for ii in data/UTAH_CORE/50bp_single_read/9386R/Fastq/*.txt.gz data/UGUAM0001JB/
   base=$(basename $ii)
   outFile=work/${base%.txt.gz}
   finalFile=$outFile.bam
-  echo $ii = $finalFile
+  echo Processing $base to $finalFile
 
   if [ ! -f "$finalFile" ];then
     date
