@@ -3,18 +3,16 @@
 #make errors end script
 set -e
 
-for ii in data/*.fq.gz;do
-  echo $ii
-done
-for ii in data/*.fq.gz;do
+#fastq files are stored as .txt.gz
+for ii in data/UTAH_CORE/*/9386R/Fastq/*.txt.gz data/UGUAM0001JB/RNAseq_RawData/Samples/*.txt.gz;do
   echo $ii
   base=$(basename $ii)
-  echo $base
-done
-  outFile=work/${base%.fq.gz}
+  outFile=work/${base%.txt.gz}
   finalFile=$outFile.bam
-  if [ ! -f "$finalFile" ]
-  then
+  echo $ii = $finalFile
+  continue
+
+  if [ ! -f "$finalFile" ];then
     date
     removeshort $ii >work/unzipped.fastq
     echo "Unzipped"
@@ -31,8 +29,9 @@ done
     rm rabbitfish/trialunzipped.fastq
     rm work/tmp.bam
     echo "Done"
-  elif
+  else
     echo "Already processed. Skipping."
   fi
-    echo "done."
+done
+echo "Done. Thanks"
 
