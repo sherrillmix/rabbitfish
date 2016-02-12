@@ -10,7 +10,6 @@ for ii in data/UTAH_CORE/50bp_single_read/9386R/Fastq/*.txt.gz data/UGUAM0001JB/
   outFile=work/${base%.txt.gz}
   finalFile=$outFile.bam
   echo $ii = $finalFile
-  continue
 
   if [ ! -f "$finalFile" ];then
     date
@@ -18,8 +17,7 @@ for ii in data/UTAH_CORE/50bp_single_read/9386R/Fastq/*.txt.gz data/UGUAM0001JB/
     echo "Unzipped"
     date
     echo "Aligning"
-    index=~/rabbitfish/index
-    ~/installs/STAR/bin/Linux_x86_64_static/STAR --genomeDir $index  --readFilesIn ~/rabbitfish/unzipped.fastq --outFileNamePrefix $outFile. --runMode genomeGenerate   --runThreadN 24   --genomeDir index/ --sjdbGTFfile zebrafishgenome/Drerio_ensGene.GTF --genomeFastaFiles zebrafishgenome/danRer10.fa
+    ~/installs/STAR/bin/Linux_x86_64_static/STAR --genomeDir index   --runThreadN 18 --readFilesIn work/unzipped.fastq --outFileNamePrefix $outFile.
 
     echo "Sorting"
     samtools view -bS "$outFile.Aligned.out.sam" > work/tmp.bam
