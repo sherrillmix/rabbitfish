@@ -13,7 +13,7 @@ for ii in data/UTAH_CORE/50bp_single_read/9386R/Fastq/*.txt.gz data/UGUAM0001JB/
 
   if [ ! -f "$finalFile" ];then
     date
-    removeshort $ii >work/unzipped.fastq
+    removeshort "$ii" >work/unzipped.fastq
     echo "Unzipped"
     date
     echo "Aligning"
@@ -24,7 +24,7 @@ for ii in data/UTAH_CORE/50bp_single_read/9386R/Fastq/*.txt.gz data/UGUAM0001JB/
     samtools sort -m 5000000000 work/tmp.bam $outFile #use ~5G of RAM
     samtools index $finalFile
     rm "$outFile.Aligned.out.sam"
-    rm rabbitfish/trialunzipped.fastq
+    rm work/unzipped.fastq
     rm work/tmp.bam
     echo "Done"
   else
