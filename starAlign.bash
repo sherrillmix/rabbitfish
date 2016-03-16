@@ -61,8 +61,6 @@ if [ ! -f "$finalFile" ];then
 else
  echo "Already processed. Skipping."
 fi
-done
-
 
 echo "Done. Thanks"
 
