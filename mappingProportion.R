@@ -1,0 +1,9 @@
+bam<-read.csv('out/uniqueBamCounts.txt',stringsAsFactors=FALSE)
+fastq<-read.csv('out/fastqReadCounts.txt',stringsAsFactors=FALSE)
+bam$name<-sub('.bam$','',basename(bam$file))
+fastq$name<-sub('.txt.gz$','',basename(fastq$file))
+counts<-merge(bam[,c('name','count')],fastq[,c('name','count')],by='name')
+colnames(counts)[colnames(counts)=='count.x']<-'nBam'
+colnames(counts)[colnames(counts)=='count.y']<-'nFastQ'
+counts$prop<-round(counts$nBam/counts$nFastQ,3)
+print(counts)
