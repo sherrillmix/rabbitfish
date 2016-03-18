@@ -10,7 +10,7 @@ Align various fastq files against the zebrafish genome
 ### countReads.bash
 Count the number of reads in the fastq and unique reads in the alignments.
 
-### mappingProportion.bash
+### mappingProportion.R
 Calculate the proportion of reads aligned for each file
 
 ### makeTrackLines.bash
