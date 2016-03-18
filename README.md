@@ -5,6 +5,8 @@
 Take annotated transcripts and zebrafish genome and generate STAR index
 ### starAlign.bash
 Align various fastq files against the zebrafish genome
+### runTrinity.bash
+Run contig building using trinity over a few parameter combinations
 
 ## Analysis
 ### countReads.bash
