@@ -58,7 +58,7 @@ for dir in work/trinity_noGenome work/trinity_unpaired;do
 	echo "Load Pfam"
 	$trinonateDir/Trinotate Trinotate.sqlite LOAD_pfam TrinotatePFAM.out
 	echo "make report"
-	$trinonateDir/Trinotate Trinotate.sqlite report  > trinotate_annotation_report.xls
+	$trinonateDir/Trinotate Trinotate.sqlite report  > trinotate_annotation_report.tsv
 	cd -
 done
 
