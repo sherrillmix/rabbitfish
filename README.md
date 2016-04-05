@@ -17,3 +17,6 @@ Calculate the proportion of reads aligned for each file
 
 ### makeTrackLines.bash
 Make track file for input into UCSC genome browser
+
+### annotateTrinity.bash
+Usr trinotate pipeline to annotate contigs
